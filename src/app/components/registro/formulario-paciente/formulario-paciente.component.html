@@ -1,0 +1,222 @@
+<h1>Paciente</h1>
+<div class="text-center">
+  <img
+    class=""
+    src="../../../assets/img/logo.png"
+    alt="Logo"
+    width="200"
+    height="200"
+  />
+  <h1 class="h3 mb-3 fw-normal">Registro</h1>
+</div>
+<form class="text-center row" [formGroup]="form">
+  <div class="form-floating col-md-6">
+    <input
+      formControlName="name"
+      type="text"
+      class="form-control"
+      id="floatingInput"
+      placeholder="Carlos"
+    />
+    <label for="floatingInput">Nombre</label>
+    <!-- ==== Validar Nombre ==== -->
+    <div
+      class="validators"
+      *ngIf="form.controls['name'].errors && form.controls['name'].dirty"
+    >
+      <div
+        *ngIf="form.controls['name'].errors?.['required']||form.controls['name'].errors?.['minlength'] "
+      >
+        Ingrese un nombre minimo de 4 caracteres
+      </div>
+    </div>
+  </div>
+  <div class="form-floating col-md-6">
+    <input
+      formControlName="lastName"
+      type="text"
+      class="form-control"
+      id="floatingInput"
+      placeholder="Carlos"
+    />
+    <label for="floatingInput">Apellido</label>
+    <!-- ==== Validar Apellido ==== -->
+    <div
+      class="validators"
+      *ngIf="
+        form.controls['lastName'].errors && form.controls['lastName'].dirty
+      "
+    >
+      <div
+        *ngIf="form.controls['lastName'].errors?.['required']||form.controls['lastName'].errors?.['minlength'] "
+      >
+        Ingrese un apellido minimo de 4 caracteres
+      </div>
+    </div>
+  </div>
+  <div class="form-floating col-6">
+    <input
+      formControlName="edad"
+      type="number"
+      class="form-control"
+      id="floatingInput"
+      placeholder="Carlos"
+      min="0"
+      max="110"
+    />
+    <label for="floatingInput">Edad</label>
+    <!-- ==== Validar Edad ==== -->
+    <div
+      class="validators"
+      *ngIf="form.controls['edad'].errors && form.controls['edad'].dirty"
+    >
+      <div *ngIf="form.controls['edad'].errors?.['required'] ">
+        Ingrese un edad validad
+      </div>
+    </div>
+  </div>
+  <div class="form-floating col-md-6">
+    <input
+      formControlName="dni"
+      type="number"
+      class="form-control"
+      id="floatingInput"
+      placeholder="Carlos"
+      min="0"
+    />
+    <label for="floatingInput">Dni</label>
+    <!-- ==== Validar Dni ==== -->
+    <div
+      class="validators"
+      *ngIf="form.controls['dni'].errors && form.controls['dni'].dirty"
+    >
+      <div *ngIf="form.controls['dni'].errors?.['required'] ">
+        Ingrese un dni validad
+      </div>
+    </div>
+  </div>
+  <div class="form-floating col-md-6">
+    <input
+      formControlName="email"
+      type="email"
+      class="form-control"
+      id="floatingInput"
+      placeholder="name@example.com"
+    />
+    <label for="floatingInput">Correo</label>
+    <div
+      class="validators"
+      *ngIf="form.controls['email'].errors && form.controls['email'].dirty"
+    >
+      <div
+        *ngIf="form.controls['email'].errors?.['required']|| form.controls['email'].errors?.['email'] "
+      >
+        Ingrese un correo valido.
+      </div>
+    </div>
+  </div>
+  <div class="text-start col-md-6">
+    <select
+      name="obraSocial"
+      formControlName="obraSocial"
+      class="form-control"
+      [(ngModel)]="form.value.obraSocial"
+    >
+      <option value="">Seleccione una obra social</option>
+      <option [ngValue]="'OSDE'">OSDE</option>
+      <option [ngValue]="'UPCN'">UPCN</option>
+      <option [ngValue]="'OSSN'">OSSN</option>
+    </select>
+  </div>
+
+  <div class="form-floating">
+    <input
+      formControlName="password"
+      type="password"
+      class="form-control"
+      id="floatingPassword"
+      placeholder="Password"
+    />
+    <label for="floatingPassword">Contraseña</label>
+    <div
+      class="validators"
+      *ngIf="
+        form.controls['password'].errors && form.controls['password'].dirty
+      "
+    >
+      <div
+        *ngIf="form.controls['password'].errors?.['required']||form.controls['password'].errors?.['minlength'] "
+      >
+        Ingrese una contraseña minimo de 6 caracteres
+      </div>
+    </div>
+  </div>
+
+  <div class="form-floating">
+    <input
+      formControlName="confirmPassword"
+      type="password"
+      class="form-control"
+      id="floatingConfirmPassword"
+      placeholder="confirmar Contraseña"
+    />
+    <label for="floatingPassword">Confirmar Contraseña</label>
+    <div
+      class="validators"
+      *ngIf="
+        form.controls['confirmPassword'].errors &&
+        form.controls['confirmPassword'].dirty
+      "
+    >
+      <div
+        *ngIf="form.controls['confirmPassword'].errors?.['required']||form.controls['confirmPassword'].errors?.['minlength'] "
+      >
+        Ingrese una contraseña minimo de 6 caracteres
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <div>
+      <label for="">Imagen:</label>
+      <input
+        class="button-file"
+        (change)="capturarFile($event)"
+        name="imagenPerfil"
+        type="file"
+        formControlName="imagenPerfil"
+      />
+    </div>
+    <div class="imgPerfil text-center">
+      <img *ngIf="this.imgForm" [src]="imgForm" />
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div>
+      <label for="">Imagen:</label>
+      <input
+        class="button-file"
+        (change)="capturarFile2($event)"
+        name="imagenPerfil2"
+        type="file"
+        formControlName="imagenPerfil2"
+      />
+    </div>
+    <div class="imgPerfil text-center">
+      <img *ngIf="this.imgForm" [src]="imgForm2" />
+    </div>
+  </div>
+  <button
+    class="btn btn-lg btn-primary"
+    type="submit"
+    [disabled]="!form.valid"
+    (click)="signUp()"
+  >
+    Registrarse
+  </button>
+  <div class="mt-4">
+    <a routerLink="/auth/login">Ya tengo una cuenta</a>
+  </div>
+  <p class="mt-5 mb-3 text-body-secondary">&copy; 2017–2023</p>
+</form>
+<app-spinner [activarSpinner]="spinner"></app-spinner>

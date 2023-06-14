@@ -1,0 +1,20 @@
+<div class="row" *ngIf="!formularioPaciente && !formularioEspecialista">
+  <div class="col-md-6" (click)="selecionar('paciente')">
+    <img src="../../../../../assets/img/pacientes.jpg" alt="" />
+  </div>
+  <div class="col-md-6" (click)="selecionar('especialista')">
+    <img src="../../../../../assets/img/especialistas.jpg" alt="" />
+  </div>
+</div>
+<main
+  class="form-signin w-100 m-auto container"
+  *ngIf="formularioPaciente || formularioEspecialista"
+>
+  <app-formulario-especialista
+    *ngIf="formularioEspecialista"
+  ></app-formulario-especialista>
+  <app-formulario-paciente *ngIf="formularioPaciente"></app-formulario-paciente>
+</main>
+<!-- <app-spinner [activarSpinner]="spinner"></app-spinner>
+<!-- <app-formulario-especialista ></app-formulario-especialista>
+<app-formulario-paciente  ></app-formulario-paciente> -->

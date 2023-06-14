@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "clinica-on-line"
+  },
+  "targets": {
+    "clinica-on-line": {
+      "hosting": {
+        "clinica-on-line": [
+          "clinica-on-line"
+        ]
+      }
+    }
+  }
+}

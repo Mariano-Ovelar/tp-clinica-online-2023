@@ -1,0 +1,92 @@
+<main class="form-signin w-100 m-auto container">
+  <form class="text-center" [formGroup]="form">
+    <img
+      class=""
+      src="../../../assets/img/logo.png"
+      alt="Logo"
+      width="200"
+      height="200"
+    />
+    <h1 class="h3 mb-3 fw-normal">Iniciar sesión</h1>
+    <!-- ==== Correo ==== -->
+    <div class="form-floating">
+      <input
+        formControlName="email"
+        type="email"
+        class="form-control"
+        id="floatingInput"
+        placeholder="name@example.com"
+      />
+      <label for="floatingInput">Correo</label>
+      <!-- ==== Validar Correo ==== -->
+      <div
+        class="validators"
+        *ngIf="form.controls['email'].errors && form.controls['email'].dirty"
+      >
+        <div
+          *ngIf="form.controls['email'].errors?.['required'] && form.controls['email'].errors?.['email'] "
+        >
+          Ingrese un correo valido
+        </div>
+      </div>
+    </div>
+    <!-- ==== Contraseña ==== -->
+    <div class="form-floating">
+      <input
+        formControlName="password"
+        type="password"
+        class="form-control"
+        id="floatingPassword"
+        placeholder="Password"
+      />
+      <label for="floatingPassword">Contraseña</label>
+      <!-- ==== Validar Correo ==== -->
+      <div
+        class="validators"
+        *ngIf="
+          form.controls['password'].errors && form.controls['password'].dirty
+        "
+      >
+        <div *ngIf="form.controls['password'].errors?.['required']">
+          Ingrese una Contraseña valida
+        </div>
+      </div>
+    </div>
+
+    <button
+      class="btn btn-lg btn-primary"
+      type="submit"
+      (click)="login()"
+      [disabled]="!form.valid"
+    >
+      Entrar
+    </button>
+    <div class="row">
+      <div class="col">
+        <button
+          class="btn btn-lg btn-secondary"
+          type="submit"
+          (click)="cargarAdmin()"
+          [disabled]="bloquearButtons"
+        >
+          Cargar Admin
+        </button>
+      </div>
+   <!--    <div class="col-6">
+        <button
+          class="btn btn-lg btn-secondary"
+          type="submit"
+          (click)="cargarEmpleado()"
+          [disabled]="bloquearButtons"
+        >
+          Cargar Empleado
+        </button>
+      </div> -->
+    </div>
+    <div class="mt-4">
+      <a routerLink="/auth/sign-up">No tengo cueta</a>
+    </div>
+    <p class="mt-5 mb-3 text-body-secondary">&copy; 2017–2023</p>
+  </form>
+</main>
+<app-spinner [activarSpinner]="spinner"></app-spinner>
