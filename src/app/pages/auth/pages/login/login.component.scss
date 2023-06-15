@@ -16,3 +16,13 @@ button {
 .formulario div[class^="col-md-"] {
   height: 90px;
 }
+.img-user {
+  width: 100px;
+  height: 50px;
+  border: 1px solid black;
+}
+.img-user:hover {
+  filter: opacity(.7);
+    cursor:pointer;
+    -webkit-filter: opacity(.7);
+}

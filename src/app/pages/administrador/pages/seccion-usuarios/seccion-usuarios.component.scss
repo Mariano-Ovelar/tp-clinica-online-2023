@@ -1,0 +1,25 @@
+
+  
+    .container {
+      max-width: 600px;
+      padding: 60px;
+  
+      /* SHADOW */
+      -webkit-box-shadow: 1px 1px 31px -5px rgba(0,0,0,0.75);
+      -moz-box-shadow: 1px 1px 31px -5px rgba(0,0,0,0.75);
+      box-shadow: 1px 1px 31px -5px rgba(0,0,0,0.75);
+  }
+  
+  .formulario div[class^="col-md-"] {
+      height: 90px;
+  }
+  img{
+    width: 100%;
+    height: 400px;
+    margin: 10px;
+  }
+  img:hover {
+    filter: opacity(.7);
+    cursor:pointer;
+    -webkit-filter: opacity(.7);
+  }

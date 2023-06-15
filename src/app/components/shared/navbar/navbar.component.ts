@@ -10,14 +10,15 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class NavbarComponent {
   verNavLink: boolean = true;
-  usuario = this.userSrv.usuario;
+  usuario = this.userSrv.usuario ?? null;
   estaLogeado = this.userSrv.estaLogeado;
   showInfoBox: boolean = false;
 
   toggleInfoBox(): void {
     this.showInfoBox = !this.showInfoBox;
   }
-  constructor(private userSrv: AuthService, private router: Router) {}
+  constructor(private userSrv: AuthService, private router: Router) {
+  }
 
   ngOnInit() {}
   mostrarNavLink() {

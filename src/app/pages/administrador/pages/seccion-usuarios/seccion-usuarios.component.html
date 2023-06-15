@@ -1,1 +1,39 @@
-<p>seccion-usuarios works!</p>
+<main>
+  <!--     <div class="py-5 text-center">
+      <h1>Lista usuarios</h1>
+    </div>
+ -->
+
+  <div class="row g-5">
+    <!-- Lista usuarios -->
+    <div class="col-md-7 col-lg-8">
+      <h4 class="mb-3">Lista usuarios</h4>
+      <app-listado-user
+        (usuarioSeleccionado)="usuarioAtrapado = $event"
+      ></app-listado-user>
+      <div>
+        <button class="btn btn-success" *ngIf="!hideForm"(click)="mostrarForm()">Agregar admin</button>
+        <app-formulario-admin *ngIf="hideForm"></app-formulario-admin>
+      </div>
+    </div>
+
+    <!-- -->
+
+    <div class="col-md-5 col-lg-4 order-md-last">
+      <h4 class="d-flex justify-content-between align-items-center mb-3">
+        <app-detalle-admin
+          *ngIf="usuarioAtrapado && usuarioAtrapado.tipoUser === 'admin'"
+          [usuario]="usuarioAtrapado"
+        ></app-detalle-admin>
+        <app-detalle-especialista
+          *ngIf="usuarioAtrapado && usuarioAtrapado.tipoUser === 'especialista'"
+          [usuario]="usuarioAtrapado"
+        ></app-detalle-especialista>
+        <app-detalle-paciente
+          *ngIf="usuarioAtrapado && usuarioAtrapado.tipoUser === 'paciente'"
+          [usuario]="usuarioAtrapado"
+        ></app-detalle-paciente>
+      </h4>
+    </div>
+  </div>
+</main>

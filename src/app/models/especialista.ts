@@ -8,7 +8,6 @@ export enum tipoEspecialista {
   otorrinolaringología = 'otorrinolaringología',
 }
 export class Especialista extends User {
-  imagenePerfil: string = '';
   especialidades: tipoEspecialista[] =
     []; /* (agregar alguna que no se encuentre entre las posibilidades) */
   constructor(
@@ -20,10 +19,9 @@ export class Especialista extends User {
     edad: number,
     especialidades: tipoEspecialista[],
     imagenePerfil: string,
-    tipoUser:string
+    tipoUser: string
   ) {
-    super(uid, name, lastName, email, edad, dni,tipoUser);
+    super(uid, name, lastName, email, edad, dni, tipoUser, imagenePerfil);
     this.especialidades = especialidades;
-    this.imagenePerfil = imagenePerfil;
   }
 }

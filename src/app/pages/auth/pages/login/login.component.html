@@ -1,4 +1,24 @@
 <main class="form-signin w-100 m-auto container">
+  <div class="row">
+  
+    <div class="col-3"  (click)="selecionUsuario(admin)">
+      <img class="img-user" [src]="admin.imagenPerfil" />
+      <p>{{ admin.tipoUser }}</p>
+    </div>
+    <div class="col-3"  (click)="selecionUsuario(paciente1)">
+      <img class="img-user" [src]="paciente1.imagenPerfil" />
+      <p>{{ paciente1.tipoUser }}</p>
+    </div>
+    <div class="col-3"  (click)="selecionUsuario(especialista1)">
+      <img class="img-user" [src]="especialista1.imagenPerfil" />
+      <p>{{ especialista1.tipoUser }}</p>
+    </div>
+    <div class="col-3"  (click)="selecionUsuario(especialista2)">
+      <img class="img-user" [src]="especialista2.imagenPerfil" />
+      <p>{{ especialista2.tipoUser }}</p>
+    </div>
+  </div>
+  <h1>hola</h1>
   <form class="text-center" [formGroup]="form">
     <img
       class=""
@@ -62,7 +82,7 @@
       Entrar
     </button>
     <div class="row">
-      <div class="col">
+      <!--  <div class="col">
         <button
           class="btn btn-lg btn-secondary"
           type="submit"
@@ -71,8 +91,8 @@
         >
           Cargar Admin
         </button>
-      </div>
-   <!--    <div class="col-6">
+      </div> -->
+      <!--    <div class="col-6">
         <button
           class="btn btn-lg btn-secondary"
           type="submit"

@@ -1,4 +1,4 @@
-<h1>Especialista</h1>
+<h1>Admin</h1>
 <div class="text-center">
   <img
     class=""
@@ -7,7 +7,7 @@
     width="200"
     height="200"
   />
-  <h1 class="h3 mb-3 fw-normal">Registro</h1>
+  <h1 class="h3 mb-3 fw-normal">Registrar</h1>
 </div>
 <form class="text-center row" [formGroup]="form">
   <div class="form-floating col-md-6">
@@ -159,18 +159,6 @@
       >
         Ingrese una contraseña minimo de 6 caracteres
       </div>
-    </div>
-  </div>
-  <div class="form-check" class="row text-start">
-    <div *ngFor="let especialidad of especialistas" class="col-5">
-      <label class="checkbox-label">
-        <input
-          type="checkbox"
-          [value]="especialidad"
-          (change)="toggleSelection(especialidad)"
-        />
-        {{ especialidad }}
-      </label>
     </div>
   </div>
 

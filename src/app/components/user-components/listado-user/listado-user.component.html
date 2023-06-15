@@ -1,0 +1,31 @@
+<select [(ngModel)]="tipoUsuarioSeleccionado">
+  <option value="">Todos</option>
+  <option value="admin">admin</option>
+  <option value="paciente">paciente</option>
+  <option value="especialista">especialista</option>
+</select>
+<table class="user-table">
+  <thead>
+    <tr>
+      <th>Email</th>
+      <th>Nombre</th>
+      <th>Apellido</th>
+      <th>Tipo de Usuario</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr
+      *ngFor="
+        let usuario of usuarios | filtroTipoUsuario : tipoUsuarioSeleccionado;
+        let i = index
+      "
+      [ngClass]="{ 'even-row': i % 2 === 0, 'odd-row': i % 2 !== 0 }"
+      (click)="selecionar(usuario)"
+    >
+      <td>{{ usuario.email }}</td>
+      <td>{{ usuario.name }}</td>
+      <td>{{ usuario.lastName }}</td>
+      <td>{{ usuario.tipoUser }}</td>
+    </tr>
+  </tbody>
+</table>

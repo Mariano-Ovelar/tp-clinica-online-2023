@@ -77,7 +77,9 @@ body {
 img {
   margin: 0;
   padding: 0;
-  margin-top: -10px ;
+  margin-top: -1px;
+  width: 55px;
+  height: 55px;
 }
 .button-salir {
   margin-left: 5px;
@@ -142,10 +144,23 @@ img {
 .salir {
   width: 100%;
 }
-p{
+p {
   margin: 0;
-  margin-top: -20px;
+  margin-top: -10px;
 }
-nav{
-  background-color: rgb(249, 178, 11)
+nav {
+  background-color: rgb(249, 178, 11);
+}
+.img-user {
+  border-radius: 100%;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  -ms-border-radius: 100%;
+  -o-border-radius: 100%;
+}
+
+.img-user:hover {
+  filter: opacity(0.9);
+  cursor: pointer;
+  -webkit-filter: opacity(0.9);
 }

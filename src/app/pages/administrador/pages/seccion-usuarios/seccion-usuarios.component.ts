@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./seccion-usuarios.component.scss']
 })
 export class SeccionUsuariosComponent {
-
+  usuarioAtrapado?:any;
+  hideForm:boolean=false;
+  mostrarForm(){
+    this.hideForm=true
+  }
 }

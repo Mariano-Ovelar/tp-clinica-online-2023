@@ -22,6 +22,7 @@ import {
   getDownloadURL,
 } from 'firebase/storage';
 import { Storage } from '@angular/fire/storage';
+import { collectionData, Firestore, collection } from '@angular/fire/firestore';
 
 @Injectable({
   providedIn: 'root',
@@ -31,11 +32,13 @@ export class AuthService {
   estaLogeado: boolean = false;
   coleccion: string = 'usuarios';
   userLS: string = 'usuario';
+  userRef = collection(this.firestore, this.coleccion);
   constructor(
     private auth: Auth,
     private lStorageSrv: LocalStorageService,
     private firestoreSrv: FirestoreService,
-    private storage: Storage
+    private storage: Storage,
+    private firestore: Firestore
   ) {
     this.actualizarEstadoUsuario().subscribe((res) => {
       this.usuario = res;
@@ -90,6 +93,7 @@ export class AuthService {
   }
   async upDateUser(user: any) {
     const auth = getAuth();
+    console.log('hola');
     const theUser = auth.currentUser;
     if (theUser) return updateProfile(theUser, user);
   }
@@ -142,16 +146,11 @@ export class AuthService {
   async traer(): Promise<any[]> {
     return this.firestoreSrv.traer(this.coleccion);
   }
-  /*   registrarLog() {
-    const fechaIngreso = Fecha.getFechaActual();
-    const horaIngreso = Fecha.getHoraActual();
-    this.firestoreSrv.guardar(
-      {
-        usuario: this.usuario,
-        fechaIngreso: fechaIngreso,
-        horaIngreso: horaIngreso,
-      },
-      'Log'
-    );
-  } */
+  getUsuarios(): Observable<any[]> {
+    return collectionData(this.userRef, { idField: 'id' }) as Observable<any[]>;
+  }
+
+  async modificar(user: any, userModificado: any) {
+    return this.firestoreSrv.modificar(user, userModificado, this.coleccion);
+  }
 }

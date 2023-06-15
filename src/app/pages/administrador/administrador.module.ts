@@ -5,6 +5,8 @@ import { AdministradorRoutingModule } from './administrador-routing.module';
 import { AdministradorComponent } from './administrador.component';
 import { SeccionUsuariosComponent } from './pages/seccion-usuarios/seccion-usuarios.component';
 import { TurnosComponent } from './pages/turnos/turnos.component';
+import { UserComponentsModule } from 'src/app/components/user-components/user-components.module';
+import { RegistroModule } from 'src/app/components/registro/registro.module';
 
 
 @NgModule({
@@ -15,7 +17,9 @@ import { TurnosComponent } from './pages/turnos/turnos.component';
   ],
   imports: [
     CommonModule,
-    AdministradorRoutingModule
+    AdministradorRoutingModule,
+    UserComponentsModule,
+    RegistroModule
   ]
 })
 export class AdministradorModule { }

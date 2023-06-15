@@ -6,6 +6,8 @@ export interface IUser {
   email: string;
   password?: string;
   dni: number;
+  emailVerificado: boolean;
+  imagenPerfil:string;
 }
 
 export class User implements IUser {
@@ -17,6 +19,8 @@ export class User implements IUser {
   edad: number;
   dni: number;
   tipoUser: string;
+  emailVerificado: boolean;
+  imagenPerfil:string;
   constructor(
     uid: string,
     name: string,
@@ -24,7 +28,8 @@ export class User implements IUser {
     email: string,
     edad: number,
     dni: number,
-    tipoUser: string
+    tipoUser: string,
+    imagenPerfil:string
   ) {
     this.uid = uid;
     this.name = name;
@@ -33,6 +38,8 @@ export class User implements IUser {
     this.edad = edad;
     this.dni = dni;
     this.tipoUser = tipoUser;
+    this.emailVerificado = false;
+    this.imagenPerfil=imagenPerfil;
   }
   public static GetLoggedUser(listaUser: any[], user: any) {
     const userEncontrado: User = listaUser.find(

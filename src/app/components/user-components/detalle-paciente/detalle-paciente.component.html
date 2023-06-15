@@ -1,0 +1,40 @@
+<div *ngIf="usuario">
+    <h1>Perfil de usuario paciente</h1>
+    <div>
+      <img [src]="usuario.imagenPerfil" alt="Imagen de Perfil" />
+    </div>
+    <div>
+      <label>Nombre: </label>
+      <span>{{ usuario.name }}</span>
+    </div>
+  
+    <div>
+      <label>Apellido: </label>
+      <span>{{ usuario.lastName }}</span>
+    </div>
+  
+    <div>
+      <label>Edad: </label>
+      <span>{{ usuario.edad }}</span>
+    </div>
+  
+    <div>
+      <label>Email: </label>
+      <span>{{ usuario.email }}</span>
+    </div>
+  
+    <div>
+      <label>DNI: </label>
+      <span>{{ usuario.dni }}</span>
+    </div>
+  
+    <div>
+      <label>Email Verificado: </label>
+      <span>{{ usuario.emailVerificado ? "Sí" : "No" }}</span>
+    </div>
+    <div>
+      <label>UID: </label>
+      <span>{{ usuario.uid }}</span>
+    </div>
+  </div>
+  

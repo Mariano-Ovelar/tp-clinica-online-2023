@@ -19,6 +19,17 @@ export class LoginComponent {
   usuarioStorage: any = {};
   bloquearButtons: boolean = false;
   spinner: boolean = false;
+  usuarios?: any[] = [];
+  emails: string[] = [
+    'marianoovelar200@gmail.com',
+    'cintiaovelaruba@gmail.com',
+    'ovelarmariano20@gmail.com',
+    'familiaovelar200@gmail.com',
+  ];
+  admin: any;
+  paciente1: any;
+  especialista1: any;
+  especialista2: any;
   constructor(
     private router: Router,
     private formBuilder: FormBuilder,
@@ -30,7 +41,14 @@ export class LoginComponent {
     });
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.userSrv.getUsuarios().subscribe((res) => {
+      this.admin = res.find((objeto) => objeto.email === this.emails[0]);
+      this.especialista1 = res.find((objeto) => objeto.email === this.emails[1]);
+      this.especialista2 = res.find((objeto) => objeto.email === this.emails[2]);
+      this.paciente1 = res.find((objeto) => objeto.email === this.emails[3]);
+    });
+  }
   login() {
     this.spinner = true;
     this.bloquearButtons = true;
@@ -61,21 +79,8 @@ export class LoginComponent {
       });
   }
 
-  cargarEmpleado() {
-    this.form.get('email')?.setValue(this.empleado.email);
-    this.form.get('password')?.setValue(this.empleado.passwod);
+  selecionUsuario(usuario: any) {
+    this.form.get('email')?.setValue(usuario.email);
+    this.form.get('password')?.setValue('123456');
   }
-  cargarAdmin() {
-    this.form.get('email')?.setValue(this.admin.email);
-    this.form.get('password')?.setValue(this.admin.passwod);
-  }
-
-  empleado = {
-    email: 'empleado@empleado.com',
-    passwod: 'empleado',
-  };
-  admin = {
-    email: 'admin@admin.com',
-    passwod: 'admin1',
-  };
 }
